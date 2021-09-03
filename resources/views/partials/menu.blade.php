@@ -1,19 +1,8 @@
-<aside class="main-sidebar bg-info elevation-4" style="min-height: 917px;">
-
-<!-- Estilos para el hover del menù -->
-<style>        
-    a:hover {
-    background-color:#007bff;
-}
-</style>
-
-<!-- Fin del hover -->
-
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="min-height: 917px;">
     <!-- Brand Logo -->
-    <div class="brand-link text-center">
-        <img src="/img/logo-colegio.png" alt="" width="30%" >
-        
-    </div>
+    <a href="#" class="brand-link">
+        <span class="brand-text font-weight-light">{{ trans('panel.site_title') }}</span>
+    </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -23,7 +12,9 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li>
-                <select class="searchable-field form-control"></select>
+                    <select class="searchable-field form-control">
+
+                    </select>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route("admin.home") }}">
@@ -206,6 +197,33 @@
                                 {{ trans('cruds.reporte.title') }}
                             </p>
                         </a>
+                    </li>
+                @endcan
+                @can('gestion_humana_access')
+                    <li class="nav-item has-treeview {{ request()->is("admin/empleos*") ? "menu-open" : "" }}">
+                        <a class="nav-link nav-dropdown-toggle" href="#">
+                            <i class="fa-fw nav-icon fas fa-cogs">
+
+                            </i>
+                            <p>
+                                {{ trans('cruds.gestionHumana.title') }}
+                                <i class="right fa fa-fw fa-angle-left nav-icon"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            @can('empleo_access')
+                                <li class="nav-item">
+                                    <a href="{{ route("admin.empleos.index") }}" class="nav-link {{ request()->is("admin/empleos") || request()->is("admin/empleos/*") ? "active" : "" }}">
+                                        <i class="fa-fw nav-icon fas fa-cogs">
+
+                                        </i>
+                                        <p>
+                                            {{ trans('cruds.empleo.title') }}
+                                        </p>
+                                    </a>
+                                </li>
+                            @endcan
+                        </ul>
                     </li>
                 @endcan
                 @can('sistema_access')

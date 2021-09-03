@@ -352,6 +352,30 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 86,
+                'title' => 'gestion_humana_access',
+            ],
+            [
+                'id'    => 87,
+                'title' => 'empleo_create',
+            ],
+            [
+                'id'    => 88,
+                'title' => 'empleo_edit',
+            ],
+            [
+                'id'    => 89,
+                'title' => 'empleo_show',
+            ],
+            [
+                'id'    => 90,
+                'title' => 'empleo_delete',
+            ],
+            [
+                'id'    => 91,
+                'title' => 'empleo_access',
+            ],
+            [
+                'id'    => 92,
                 'title' => 'profile_password_edit',
             ],
         ];

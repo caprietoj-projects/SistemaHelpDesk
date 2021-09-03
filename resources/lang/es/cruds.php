@@ -345,4 +345,24 @@ return [
             'deleted_at_helper'                    => ' ',
         ],
     ],
+    'gestionHumana' => [
+        'title'          => 'Gestion Humana',
+        'title_singular' => 'Gestion Humana',
+    ],
+    'empleo' => [
+        'title'          => 'Empleo',
+        'title_singular' => 'Empleo',
+        'fields'         => [
+            'id'                => 'ID',
+            'id_helper'         => ' ',
+            'nombre'            => 'Nombre',
+            'nombre_helper'     => ' ',
+            'created_at'        => 'Created at',
+            'created_at_helper' => ' ',
+            'updated_at'        => 'Updated at',
+            'updated_at_helper' => ' ',
+            'deleted_at'        => 'Deleted at',
+            'deleted_at_helper' => ' ',
+        ],
+    ],
 ];

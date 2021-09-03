@@ -1,8 +1,5 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\GoogleController;
-
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
@@ -94,6 +91,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('hojas-de-vida-mantenimientos/process-csv-import', 'HojasDeVidaMantenimientoController@processCsvImport')->name('hojas-de-vida-mantenimientos.processCsvImport');
     Route::resource('hojas-de-vida-mantenimientos', 'HojasDeVidaMantenimientoController');
 
+    // Empleo
+    Route::delete('empleos/destroy', 'EmpleoController@massDestroy')->name('empleos.massDestroy');
+    Route::resource('empleos', 'EmpleoController');
+
     Route::get('global-search', 'GlobalSearchController@search')->name('globalSearch');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
@@ -114,8 +115,3 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
     }
 });
-
-// laravel socialite
-
-Route::get('auth/google', [GoogleController::class, 'googleRedirect']);
-Route::get('auth/google/callback', [GoogleController::class, 'googleCallback']);

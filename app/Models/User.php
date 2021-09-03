@@ -43,8 +43,6 @@ class User extends Authenticatable
         'created_at',
         'updated_at',
         'deleted_at',
-        'google_id',
-        'auth_type',
     ];
 
     public function getIsAdminAttribute()
